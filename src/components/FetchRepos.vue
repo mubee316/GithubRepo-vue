@@ -41,7 +41,7 @@
             
             <ul>
                 <li v-for="repo in github" :key="repo.name" class="name">
-                    <router-link :to="'/repodetails/' + repo.name">{{ repo.name }}</router-link>
+                    <router-link :to="'/repodetails/' + repo.name" style="color: purple;font-size: 1.5rem;background-color:black; padding: 0; margin: 0;">{{ repo.name }}</router-link>
                     <p>Language: {{ repo.language }}</p>
                     <p>Last updated: {{ repo.updated_at }}</p>
                     <p>Description: {{ repo.description }}</p>
@@ -85,5 +85,6 @@
  ul {
     list-style-type: none;
  }
+ 
  
 </style>

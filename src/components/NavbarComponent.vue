@@ -19,11 +19,15 @@ import '@fortawesome/fontawesome-free/css/all.css';
 </template>
 
 <style scoped>
+nav{
+  margin-top: 20px;
+}
  .navbar {
   display: flex;
   background-color: rgb(128, 0, 128);
-  margin: 0 auto;
+  margin:  auto;
   padding: 0;
+  height:90px;
   max-width: 100%;
   color:rgb(255, 255, 255);
   border-radius: 10px;
@@ -37,5 +41,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
  }
  .navbarmenu{
   color: black;
+  margin-top: 7px;
  }
 </style>
