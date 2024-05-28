@@ -46,8 +46,8 @@ onMounted(() => {
 
 <template>
   <section>
-    <div v-if="github">
-      <p>{{ github.name }}</p>
+    <div v-if="github" style="color: white; font-size:1.2rem;padding:10px;">
+      <p style="color:purple; font-size:1.5rem; font-weight:bold;">{{ github.name }}</p>
       <p>Language: {{ github.language }}</p>
       <p>Stars: {{ github.stargazers_count }}</p>
       <p>Watch: {{ github.watchers }}</p>
@@ -60,7 +60,7 @@ onMounted(() => {
         >` }}
       </p>
 
-      <a :href="github.html_url" target="blank">View On Github</a>
+      <a :href="github.html_url" target="blank" style="margin: 0;">View On Github</a>
     </div>
   </section>
   <p>Go to <router-link to="/">Home Page</router-link></p>
