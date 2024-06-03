@@ -1,12 +1,14 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 import api from '../Repo/api'
-import { useRoute } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
 
 const github = ref(null)
 const branches = ref(null)
 const deployments = ref(null)
 const route = useRoute()
+const router = useRouter()
+
 
 onMounted(() => {
   console.log('Component mounted')
@@ -15,6 +17,7 @@ onMounted(() => {
   api
     .getRepoDetails(name)
     .then((response) => {
+      
       console.log('Repo details:', response.data)
       github.value = response.data
       
@@ -22,6 +25,9 @@ onMounted(() => {
     })
     .catch((error) => {
       console.error('Error fetching repo details', error)
+      if(error.response.status === 404){
+        router.push('/:catchAll(.*)*')
+      }
     })
   api
     .getRepoBranches(name)
@@ -41,7 +47,10 @@ onMounted(() => {
     .catch((error) => {
       console.error('Error fetching repo deployments', error)
     })
+
 })
+
+
 </script>
 
 <template>
@@ -61,7 +70,9 @@ onMounted(() => {
       </p>
 
       <a :href="github.html_url" target="blank" style="margin: 0;">View On Github</a>
-    </div>
+    
+    
+  </div>
   </section>
   <p>Go to <router-link to="/">Home Page</router-link></p>
 </template>

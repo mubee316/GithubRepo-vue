@@ -11,7 +11,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
         
         
         <router-link to="/">Home</router-link>
-        <router-link to="/:pathMatch(.*)*">404 Page</router-link>
+        <router-link to="/:catchAll(.*)*">404 Page</router-link>
         <router-link to="/errorboundary">Error Boundary</router-link>
       </div>
     </div>
