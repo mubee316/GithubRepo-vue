@@ -23,7 +23,7 @@ nav{
   margin-top: 20px;
 }
  .navbar {
-  display: flex;
+  
   background-color: rgb(128, 0, 128);
   margin:  auto;
   padding: 0;
@@ -31,16 +31,29 @@ nav{
   max-width: 100%;
   color:rgb(255, 255, 255);
   border-radius: 10px;
-  justify-content: center;
+  
  }
  i {
   padding-right: 20px;
+  padding-left: 10px;
  }
  h1{
   font-size: 2rem;
+  padding-top: 5px;
  }
- .navbarmenu{
+ a,
+.green {
+  text-decoration: none;
   color: black;
-  margin-top: 7px;
- }
+  background-color: white;
+  transition: 0.4s;
+  padding: 3px;
+  margin:10px 15px 15px 15px;
+  border-radius: 5px;
+  
+}
+a:hover {
+    background-color: purple;
+  }
+ 
 </style>

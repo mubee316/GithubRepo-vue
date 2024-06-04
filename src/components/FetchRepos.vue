@@ -1,11 +1,11 @@
 <script setup>
-   import { onMounted, ref } from 'vue'
+   import { onMounted, ref, computed } from 'vue'
    import api  from '../Repo/api'
 
    const github = ref(null)
    const page = ref(1)
    const perPage = 5
-   
+   const searchQuery = ref('')
 
 
     const loadRepos = () => {
@@ -31,6 +31,12 @@
             loadRepos()
         }
     }
+    const filteredRepos = computed(() => {
+    if (!github.value) return [];
+    if (!searchQuery.value) return github.value;
+    const query = searchQuery.value.toLowerCase();
+    return github.value.filter(repo => repo.name.toLowerCase().includes(query));
+});
 </script>
 
 <template>
@@ -39,10 +45,11 @@
         
         <div v-if="github === null">Loading...</div>
         <div v-if="github" class="github">
+          <input type="text" placeholder="Search repository" v-model="searchQuery" style="width:300px; margin-top: 20px; height:40px; border-radius: 10px; margin-left: 50px;" />
             
             <ul>
-                <li v-for="repo in github" :key="repo.name" class="name">
-                    <router-link :to="'/repodetails/' + repo.name" style="color: purple;font-size: 1.5rem;background-color:black; padding: 0; margin: 0;">{{ repo.name }}</router-link>
+                <li v-for="repo in filteredRepos" :key="repo.name" class="name">
+                    <router-link :to="'/repodetails/' + repo.name" style="color: purple;font-size: 1.5rem;background-color:black; padding: 0; margin: 0; text-decoration: none;">{{ repo.name }}</router-link>
                     <p>Language: {{ repo.language }}</p>
                     <p>Last updated: {{ repo.updated_at }}</p>
                     <p>Description: {{ repo.description }}</p>
@@ -82,9 +89,11 @@
     margin: 15px;
     padding-left: 10px;
     padding-block: 20px;
+    font-size: 1.1rem;
  }
  ul {
     list-style-type: none;
+    text-decoration: none;
  }
  
  
