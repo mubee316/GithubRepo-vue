@@ -1,5 +1,5 @@
 <template>
-    <div style="color:white;">
+    <div style="color:green;">
         <h1>Ooops</h1>
         <p style="color:red;font-size:1.2rem;">404!</p>
         <p>Page not found</p>

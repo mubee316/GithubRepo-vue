@@ -10,7 +10,7 @@
 
     const loadRepos = () => {
       console.log('Component mounted');
-      api.getUserRepos('Faateeha', page.value, perPage).then(response => {
+      api.getUserRepos('mubee316', page.value, perPage).then(response => {
         console.log('User:', response.data);
         github.value = response.data;
       }).catch(error => {
@@ -49,7 +49,7 @@
             
             <ul>
                 <li v-for="repo in filteredRepos" :key="repo.name" class="name">
-                    <router-link :to="'/repodetails/' + repo.name" style="color: purple;font-size: 1.5rem;background-color:black; padding: 0; margin: 0; text-decoration: none;">{{ repo.name }}</router-link>
+                    <router-link :to="'/repodetails/' + repo.name" style="color: white;font-size: 1.5rem;background-color:green; padding: 0; margin: 0; text-decoration: none;">{{ repo.name }}</router-link>
                     <p>Language: {{ repo.language }}</p>
                     <p>Last updated: {{ repo.updated_at }}</p>
                     <p>Description: {{ repo.description }}</p>
@@ -66,13 +66,13 @@
 
 <style scoped>
  .button {
-    color: white;
+    color: green;
     display: flex;
     justify-content: center;
     margin: 2rem;
  }
  button{
-    background-color: rgb(128, 0, 128);
+    background-color: green;
     color: white;
     padding: 5px 10px;
     width: 100px;
@@ -80,11 +80,16 @@
  }
  button:hover {
     cursor: pointer;
-    background-color: rgb(177, 11, 177);
+    background-color: hsl(120, 100%, 35%);
+ }
+ button:active {
+    cursor: pointer;
+    background-color: hsl(120, 100%, 55%);
  }
  .name{
-    border: 1px solid white;
-    background-color: black;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: green;
     color: white;
     margin: 15px;
     padding-left: 10px;
@@ -94,6 +99,12 @@
  ul {
     list-style-type: none;
     text-decoration: none;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+ }
+ .name{
+    color: white;
+    text-align:center;
  }
  
  

@@ -64,7 +64,7 @@ onMounted(() => {
       <p>Branches: {{ branches ? branches.length : 'Loading' }}</p>
       <p>
         Live Site: {{ deployments.length === 0 ? 'none' : `<a
-          href="https://faateeha.github.io/${github.name}"
+          href="https://mubee316.github.io/${github.name}"
           >Link</a
         >` }}
       </p>

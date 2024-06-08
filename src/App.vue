@@ -23,6 +23,6 @@ body {
   padding: 0;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: white;
 }
 </style>

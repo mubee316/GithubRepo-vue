@@ -13,12 +13,12 @@ export default {
         return api.get(`/users/${username}/repos?page=${page}&per_page=${perPage}`)
     },
     getRepoDetails(name){
-        return api.get(`/repos/Faateeha/${name}`)
+        return api.get(`/repos/mubee316/${name}`)
     },
     getRepoBranches(name){
-        return api.get(`/repos/Faateeha/${name}/branches`)
+        return api.get(`/repos/mubee316/${name}/branches`)
     },
     getRepoDeployments(name){
-        return api.get(`/repos/Faateeha/${name}/deployments`)
+        return api.get(`/repos/mubee316/${name}/deployments`)
     }
 }
